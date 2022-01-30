@@ -26,7 +26,7 @@
 
 ## チャレンジ要素一覧
 
-<https://docs.google.com/spreadsheets/d/14PgGITD-Nl8-xS6tFqd4U4wIFiESgQFXRi7cbGyd5E8/edit?usp=sharing>
+<https://docs.google.com/spreadsheets/d/14PgGITD-Nl8-xS6tFqd4U4wIFiESgQFXRi7cbGyd5E8/edit#gid=0>
 
 ## 開発環境
 
