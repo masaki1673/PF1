@@ -1,0 +1,18 @@
+<div>
+  <h2>プロフィール</h2>
+  <table class='table'>
+    <tr>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></tr>
+    <tr>
+  	  <th>名前</th>
+  	  <th><%= user.name %></th>
+    </tr>
+    <tr>
+  	  <th>紹介</th>
+  	  <th><%= user.introduction %></th>
+	  </tr>
+  </table>
+  <div class='row'>
+    <%= link_to '', edit_user_path(user.id),class:"btn btn-outline-secondary btn-block fas fa-user-cog" %>
+  </div>
+</div>

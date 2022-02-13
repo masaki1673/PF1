@@ -1,0 +1,19 @@
+<h1>Editing Comic</h1>
+<%= form_with model:@comic, url:"/comics/#{@comic.id}", local:true do |f| %>
+  <% if @comic.errors.any? %>
+  <%= @comic.errors.count %>error
+  <% @comic.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+  <h6>タイトル</h6>
+  <%= f.text_field :title %>
+  <h6>Opinion</h6>
+  <%= f.text_area :body %>
+
+<%= render '編集を保存', comic: @comic %>
+
+<%= link_to 'Show', @comic %> |
+<%= link_to 'Back', comics_path %>
+<% end %>
