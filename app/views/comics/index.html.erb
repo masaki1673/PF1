@@ -22,6 +22,7 @@
         </td>
         <td><%= link_to comic.title, comic_path(comic.id) %></td>
         <td><%= comic.body %></td>
+        <td><%= link_to "#{comic.post_comments.count} コメント", comic_path(comic.id) %></td>
         <td><%= link_to '詳細', comic %></td>
         <td><%= link_to '編集', edit_comic_path(comic) %></td>
         <td><%= link_to '削除', comic, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>

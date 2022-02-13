@@ -9,7 +9,8 @@ class ComicsController < ApplicationController
 
   # GET /comics/1 or /comics/1.json
   def show
-    
+     @comic = Comic.find(params[:id])
+     @post_comment = PostComment.new
   end
 
   # GET /comics/new
@@ -67,6 +68,6 @@ class ComicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comic_params
-      params.require(:comic).permit(:title, :body, :user_id)
+      params.require(:comic).permit(:title, :body, :user_id, :image_id)
     end
 end
