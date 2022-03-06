@@ -1,0 +1,17 @@
+- if user_signed_in?
+  - if current_user.favorites.find_by(comic_id: comic.id)
+    = link_to comic_favorites_path(comic.id), method: :delete, remote: true do
+      .icon
+        = icon('fa', 'heart')
+      .text
+        = 'いいね!'
+      .count
+        = comic.favorites.count
+  - else
+    = link_to comic_favorites_path(comic.id), method: :post, remote: true do
+      .icon
+        = icon('far', 'heart')
+      .text
+        = 'いいね!'
+      .count
+        = comic.favorites.count

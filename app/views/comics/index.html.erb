@@ -1,37 +1,53 @@
 <p id="notice"><%= notice %></p>
-
-<div class="col-md-8 offset-md-1">
-<h1>Comics</h1>
-<table class="table table-hover table-inverse">
-  <thead>
-    <tr>
-      <th></th>
-      <th>タイトル</th>
-      <th>説明</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comics.each do |comic| %>
-      <tr>
-        <td>
-        <%= link_to user_path(comic.user) do %>
-          <%= attachment_image_tag comic.user,:profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'templates/user_info', user: @user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+    <h2>Comics<i class="fas fa-book-reader"></i>Diary</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>タイトル</th>
+          <th>説明</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>評価</th>
+          <th>タグ</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @comics.each do |comic| %>
+          <tr>
+            <td>
+            <%= link_to user_path(comic.user) do %>
+              <%= attachment_image_tag comic, :image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg" %>
+            <% end %>
+             </td>
+             <td><%= link_to comic.title, comic_path(comic.id) %></td>
+             <td><%= comic.body %></td>
+             <td><%= link_to "#{comic.post_comments.count} コメント", comic_path(comic.id) %></td>
+             <td>
+             <td id="favorite_buttons_<%= comic.id %>">
+               <%= render partial: 'favorites/favorite', locals: {comic: comic} %>
+             </td>
+             <td class="comic-evaluation" data-score="<%= comic.evaluation %>"></td>
+             <td></td>
+             <td><%= link_to '詳細', comic %></td>
+             <td><%= link_to '編集', edit_comic_path(comic) %></td>
+             <td><%= link_to '削除', comic, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+          </tr>
         <% end %>
-        </td>
-        <td><%= link_to comic.title, comic_path(comic.id) %></td>
-        <td><%= comic.body %></td>
-        <td><%= link_to "#{comic.post_comments.count} コメント", comic_path(comic.id) %></td>
-        <td><%= link_to '詳細', comic %></td>
-        <td><%= link_to '編集', edit_comic_path(comic) %></td>
-        <td><%= link_to '削除', comic, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'マンガの新規投稿', new_comic_path %>
-<%= paginate @post_images %>
+      </tbody>
+    </table>
+    <script>
+      $('.movie-evaluation').raty({readOnly: true, score: function() {return $(this).attr('data-score');}, path: '/assets/'});
+    </script>
+    <br>
+    <%= paginate @comics %>
+  </div>
+</div>

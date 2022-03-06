@@ -5,12 +5,14 @@ class ComicsController < ApplicationController
   def index
     @comics = Comic.all
     @comics = Comic.page(params[:page]).reverse_order
+    @tags = Comic.tag_counts_on(:tags).most_used(20)
   end
 
   # GET /comics/1 or /comics/1.json
   def show
      @comic = Comic.find(params[:id])
      @post_comment = PostComment.new
+     @tags = @comic.tag_counts_on(:tags)
   end
 
   # GET /comics/new
@@ -20,15 +22,21 @@ class ComicsController < ApplicationController
 
   # GET /comics/1/edit
   def edit
+    @comic = Comic.find(params[:id])
+    if @comic.user == current_user
+      render :edit
+    else
+      redirect_to comics_path
+    end
   end
 
   # POST /comics or /comics.json
   def create
     @comic = Comic.new(comic_params)
-
+    @comic.user_id = current_user.id
     respond_to do |format|
       if @comic.save
-        format.html { redirect_to comic_url(@comic), notice: "Comic was successfully created." }
+        format.html { redirect_to comic_url(@comic)}
         format.json { render :show, status: :created, location: @comic }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,12 +60,13 @@ class ComicsController < ApplicationController
 
   # DELETE /comics/1 or /comics/1.json
   def destroy
+    @comic = Comic.find(params[:id])
     @comic.destroy
-
     respond_to do |format|
       format.html { redirect_to comics_url, notice: "Comic was successfully destroyed." }
       format.json { head :no_content }
     end
+    redirect_to comics_path
   end
 
   private
@@ -68,6 +77,11 @@ class ComicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comic_params
-      params.require(:comic).permit(:title, :body, :user_id, :image_id)
+      params.require(:comic).permit(:title, :body, :user_id, :image_id, :evaluation, :tag_list)
+    end
+
+    private
+    def sort_params
+      params.permit(:sort)
     end
 end

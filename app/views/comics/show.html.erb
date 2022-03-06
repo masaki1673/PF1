@@ -1,17 +1,19 @@
-<p id="notice"><%= notice %></p>
+<p>
+ <%= attachment_image_tag @comic, :image, format: 'jpeg', width: "100%" %>
+</p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @comic.title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>説明:</strong>
   <%= @comic.body %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>ユーザー名:</strong>
   <%= @comic.user_id %>
 </p>
 
@@ -28,26 +30,13 @@
   <% end %>
 <% end %>
 </div>
-<% if @comic.favorited_by?(current_user) %>
-    <p>
-      <%= link_to comic_favorites_path(@comic), method: :delete do %>
-        ♥<%= @comic.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to comic_favorites_path(@comic), method: :post do %>
-        ♡<%= @comic.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-<div>
-<%= form_with(model:[@comic, @post_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
-</div>
 
+<div class="new-comment">
+  <%= render 'post_comments/form', comic: @comic, comment: @post_comment %>
+</div>
+<div id="comments_area">
+  <%= render 'post_comments/post_comments', comic: @comic %>
+</div>
 
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>

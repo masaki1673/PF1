@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @comics = @user.books
+    @comics = @user.comics
     @comic = Comic.new
   end
   def create
@@ -10,15 +10,16 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
   def index
-     @user = current_user
+    @user = current_user
     @users = User.all
     @comic = Comic.new
+
   end
   def edit
     @user = User.find(params[:id])
    if @user == current_user
      render :edit
-   else 
+   else
      redirect_to user_path(current_user)
    end
   end

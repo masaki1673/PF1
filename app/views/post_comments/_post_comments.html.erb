@@ -1,0 +1,14 @@
+<% if comic.post_comments.present? %>
+  <p>コメント件数：<%= comic.post_comments.count %></p>
+  <% post.comments.each do |comment| %>
+    <%= post_comment.user.name %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_coment.post_comment %>
+    <% if posut_comment.user == current_user %>
+      <div class="post_comment-delete">
+        <%= link_to "削除", comic_post_comment_path(post_comment.comic, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>

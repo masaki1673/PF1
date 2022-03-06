@@ -6,7 +6,7 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -67,3 +67,11 @@ gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
+gem 'rails-i18n'
+gem 'enum_help'
+gem "dotenv-rails"
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'rakuten_web_service'
+gem 'therubyracer'
+gem 'haml-rails'
+gem 'erb2haml'

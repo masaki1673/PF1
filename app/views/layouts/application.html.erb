@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ComicsDiary</title>
+    <title>Comics Diary</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
    <header>
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <nav class="navbar navbar-dark bg-primary">
        <div class="container">
-         <a class="navbar-brand" href="/"><span>Comics Diary</span></a>
+         <a class="navbar-brand" href="/"><span>Comics <i class="fas fa-hands-helping"></i> Diary</span></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
@@ -23,6 +24,7 @@
                <%= link_to "Home", user_path(current_user.id), class: "fas fa-home nav-link text-light" %>
                <%= link_to "ユーザー一覧", users_path, class: "fas fa-users nav-link text-light"  %>
                <%= link_to "マンガ一覧", comics_path, class: "fas fa-book-open nav-link text-light"  %>
+               <%= link_to '新規投稿', new_comic_path, class: "fas fa-quran nav-link text-light"  %>
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
              <% else %>
                <%= link_to "Home", root_path, class: "fas fa-home nav-link text-light" %>
@@ -36,7 +38,7 @@
      </nav>
    </header>
    <main>
-     <p id="notice"><%= notice %></p>
     <%= yield %>
+   </main>
   </body>
 </html>

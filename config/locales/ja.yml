@@ -1,0 +1,8 @@
+ja:
+  enums:
+    contact:
+      contact:
+        name: 'お名前'
+        email: 'メールアドレス'
+        subject: 'お問合せカテゴリー'
+        message: 'お問合せ内容'
