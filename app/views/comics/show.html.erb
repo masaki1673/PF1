@@ -1,11 +1,13 @@
-<p>
- <%= attachment_image_tag @comic, :image, format: 'jpeg', width: "100%" %>
-</p>
 
 <p>
   <strong>タイトル:</strong>
   <%= @comic.title %>
 </p>
+
+<p>
+ <%= attachment_image_tag @comic, :image, format: 'jpeg', size: "100x100" %>
+</p>
+
 
 <p>
   <strong>説明:</strong>
@@ -14,7 +16,7 @@
 
 <p>
   <strong>ユーザー名:</strong>
-  <%= @comic.user_id %>
+  <%= @comic.user.name %>
 </p>
 
 <div>

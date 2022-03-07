@@ -66,7 +66,6 @@ class ComicsController < ApplicationController
       format.html { redirect_to comics_url, notice: "Comic was successfully destroyed." }
       format.json { head :no_content }
     end
-    redirect_to comics_path
   end
 
   private
@@ -77,7 +76,7 @@ class ComicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comic_params
-      params.require(:comic).permit(:title, :body, :user_id, :image_id, :evaluation, :tag_list)
+      params.require(:comic).permit(:title, :body, :user_id, :image_, :evaluation, :tag_list)
     end
 
     private
