@@ -1,15 +1,21 @@
-<%= form_for(@contact, url: confirm_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+<div class="col-md-8 offset-md-1">
+  <%= form_with model:@comic, local:true do |f| %>
+  <h1 class="px-2 mx-auto">お問合せフォーム</h1>
+  <%= form_for(@contact, url: confirm_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'お名前*' %>
+      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
-  </div>
-
-  <div>
-    <%= f.submit '入力内容確認' %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :message, 'メッセージ*' %>
+      <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+    </div>
+    <% end %>
+    <div>
+      <%= f.submit '入力内容確認' %>
+    </div>
+    <p></p>
+    <div><%= link_to "戻る",comics_path %></div>
+  <% end %>
+</div>

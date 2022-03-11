@@ -5,7 +5,7 @@
       <td><%= @contact.name_i18n %></td>
     </tr>
     <tr>
-      <td class="text-center">メッセージ</td>
+      <td class="text-center">メッセージ確認</td>
       <td style="white-space: pre-wrap;"><%= @contact.message_i18n %></td>
     </tr>
   </tbody>
@@ -13,15 +13,11 @@
 
 <%= form_for(@contact) do |f| %>
   <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :subject %>
   <%= f.hidden_field :message %>
   <div><%= f.submit '送信' %></div>
 <% end %>
 <%= form_for @contact, url: back_path do |f| %>
   <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :subject %>
   <%= f.hidden_field :message %>
   <div><%= f.submit '入力画面に戻る' %></div>
 <% end %>
