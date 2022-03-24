@@ -1,0 +1,3 @@
+- @comics.each do |comic|
+     tr id="comic-#{comic.id}"
+        td= render 'comics/tag_list', tag_list: comic.tag_list

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <h2 class="my-3 ml-3">
     マンガの詳細
@@ -30,5 +31,39 @@
       <%= link_to 'Edit', edit_comic_path(@comic) %> |
       <%= link_to 'Back', comics_path %>
     </div>
+=======
+
+<p>
+ <%= attachment_image_tag @comic, :image, format: 'jpeg', size: "400x400" %>
+</p>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @comic.title %>
+</p>
+
+<p>
+  <strong>説明:</strong>
+  <%= @comic.body %>
+</p>
+
+<p>
+  <strong>ユーザー名:</strong>
+  <%= @comic.user.name %>
+</p>
+
+
+
+
+<div>
+<p>コメント件数：<%= @comic.post_comments.count %></p>
+<% @comic.post_comments.each do |post_comment| %>
+  <p><%= image_tag('sample-author1.jpg') %></p>
+  <%= post_comment.user.name %>
+  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+  <% if post_comment.user == current_user %>
+  <div>
+  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+>>>>>>> origin/main
   </div>
 </div>
