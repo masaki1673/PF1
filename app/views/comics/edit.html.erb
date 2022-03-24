@@ -18,9 +18,25 @@
   <%= f.attachment_field :image %>
   <h6>説明</h6>
   <%= f.text_area :body %>
+  <div id="evaluate_stars">
+  <label>評価</label>
+  </div>
+  <p>
+  <label for="exampleInputEmail1">タグ</label>
+  <textarea tag="tag_name" class="form-control post_form"></textarea>
+  </p>
 
 <%= f.submit '編集を保存' %>
 
 <%= link_to '詳細', @comic %> |
 <%= link_to '戻る', comics_path %>
 <% end %>
+
+ <script>
+  $('#evaluate_stars').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'comic[evaluation]'
+  });
+ </script>

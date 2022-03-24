@@ -4,5 +4,5 @@ ja:
       contact:
         name: 'お名前'
         email: 'メールアドレス'
-        subject: 'お問合せカテゴリー'
+        subject: '件名'
         message: 'お問合せ内容'

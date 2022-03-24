@@ -1,7 +1,0 @@
-= form_with model: comic, local:true do |f|
-  .form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control', id: 'comic_title'
-.form-group 
-    = f.label :tag_list
-    = f.text_field :tag_list, value: @comic.tag_list.join(','), class: "form-control"

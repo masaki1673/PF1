@@ -1,15 +1,31 @@
-<%= form_for(@contact, url: confirm_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :name, 'お名前*' %>
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
+<div class="container">
+  <h2 class="my-3 ml-3">
+    お問い合わせフォーム
+  </h2>
+  <div class="row">
+    <div class="col-sm-10 mx-auto">
 
-  <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
-    <%= f.text_area :message, size: '10x10', class: 'form-control' %>
-  </div>
 
-  <div>
-    <%= f.submit '入力内容確認' %>
+      <%= form_with model: @contact, local: true, url: {action: :confirm} do |f| %>
+
+      <%= render 'layouts/error_messages', model: f.object %>
+
+        <div class="form-group">
+          <%= f.label :name, 'お名前' %><br>
+          <%= f.text_field :name, autofocus: true, placeholder:'金色　太郎', class:'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, 'メールアドレス' %><br>
+          <%= f.text_field :email, placeholder:'test@gmail.com', class:'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :content, 'お問い合わせ内容' %><br>
+          <%= f.text_area :content, placeholder:'お問い合わせ内容は10文字以上でお願いします', class:'form-control' %>
+        </div>
+        <div class="d-flex justify-content-center mb-5">
+          <%= f.submit '確認画面へ進む', class:'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

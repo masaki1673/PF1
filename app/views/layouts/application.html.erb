@@ -25,6 +25,7 @@
                <%= link_to "ユーザー一覧", users_path, class: "fas fa-users nav-link text-light"  %>
                <%= link_to "マンガ一覧", comics_path, class: "fas fa-book-open nav-link text-light"  %>
                <%= link_to '新規投稿', new_comic_path, class: "fas fa-quran nav-link text-light"  %>
+               <%= link_to 'お問合せ', new_contact_path, class: "fas fa-mail-bulk nav-link text-light" %>
                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
              <% else %>
                <%= link_to "Home", root_path, class: "fas fa-home nav-link text-light" %>

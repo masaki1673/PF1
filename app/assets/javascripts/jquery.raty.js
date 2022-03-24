@@ -764,3 +764,4 @@ $.fn.raty = function(options) {
     return Raty;
   })();
 }));
+

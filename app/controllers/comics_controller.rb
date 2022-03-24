@@ -5,14 +5,15 @@ class ComicsController < ApplicationController
   def index
     @comics = Comic.all
     @comics = Comic.page(params[:page]).reverse_order
-    @tags = Comic.tag_counts_on(:tags).most_used(20)
+
   end
 
   # GET /comics/1 or /comics/1.json
   def show
      @comic = Comic.find(params[:id])
      @post_comment = PostComment.new
-     @tags = @comic.tag_counts_on(:tags)
+     @post_comment = PostComment.where(params:[:id])
+
   end
 
   # GET /comics/new

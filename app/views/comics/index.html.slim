@@ -1,5 +1,0 @@
-- @comics.each do |comic|
-     tr id="comic-#{comic.id}"
-        td= link_to comic.title, comic_path(comic)
-        td= comic.created_at
-        td= render 'comics/tag_list', tag_list: comic.tag_list

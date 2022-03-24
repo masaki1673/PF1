@@ -60,11 +60,12 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      port: 587,
       address: 'smtp.gmail.com',
+      port: 587,
       domain: 'smtp.gmail.com',
-      user_name: ENV['SMTP_USERNAME'],
-      password: ENV['SMTP_PASSWORD'],
+      user_name: ENV['SEND_MAIL'],
+      password: ENV['SEND_MAIL_PASSWORD'],
+      authentication: 'plain',
       enable_starttls_auto: true
   }
 end

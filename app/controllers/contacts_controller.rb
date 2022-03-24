@@ -1,29 +1,27 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :confirm, :complete, :create]
   def new
     @contact = Contact.new
   end
   def confirm
     @contact = Contact.new(contact_params)
-    if @contact.invalid?
-      render :new
-    end
   end
-  def back
-    @contact = Contact.new(contact_params)
-    render :new
-  end
+
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.send_mail(@contact).deliver_now
-      redirect_to done_path
+      ContactMailer.contact_mail(@contact).deliver
+      redirect_to complete_contacts_path, notice: 'お問い合わせ内容を送信しました'
     else
       render :new
     end
   end
-  def done
+  def complete
   end
+
+  private
+
   def contact_params
-    params.require(:contact).permit(:email, :name, :subject, :message)
+    params.require(:contact).permit(:email, :name, :content)
   end
 end
