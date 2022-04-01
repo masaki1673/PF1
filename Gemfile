@@ -74,8 +74,4 @@ gem 'rakuten_web_service'
 gem 'therubyracer'
 gem 'haml-rails'
 gem 'erb2haml'
-<<<<<<< HEAD
 gem 'slim-rails'
-=======
-gem 'slim-rails'
->>>>>>> origin/main
