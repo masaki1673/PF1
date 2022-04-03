@@ -3,7 +3,7 @@ class ContactMailer < ApplicationMailer
     @contact = contact
     mail(
       from: ENV['SEND_MAIL'],
-      to: @contact.email,
+      to: contact.email,
       subject: 'お問い合わせを承りました')
   end
 end
