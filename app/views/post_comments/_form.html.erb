@@ -1,7 +1,5 @@
-<%= form_with(model:[comic, @post_comment]) do |f| %>
-  <div id="comments-error">
-  <%= render 'layouts/error_messages', model: f.object %>
-  </div>
+<%= form_with(model:[@comic,@post_comment],local: true) do |f| %>
+
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>

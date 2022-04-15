@@ -1,11 +1,12 @@
 <% if comic.post_comments.present? %>
   <p>コメント件数：<%= comic.post_comments.count %></p>
-  <% @post_comment.each do |comment| %>
+  <% @comic.post_comments.each do |post_comment| %>
     <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_coment.post_comment %>
-    <% if posut_comment.user == current_user %>
+    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+    <p><%= simple_format(post_comment.comment) %></p>
+    <% if post_comment.user == current_user %>
       <div class="post_comment-delete">
-        <%= link_to "削除", comic_post_comment_path(post_comment.comic, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
+        <%= link_to "削除", comic_post_comment_path(post_comment.comic, post_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"} %>
       </div>
     <% end %>
   <% end %>

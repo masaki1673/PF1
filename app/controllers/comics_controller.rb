@@ -12,8 +12,6 @@ class ComicsController < ApplicationController
   def show
      @comic = Comic.find(params[:id])
      @post_comment = PostComment.new
-     @post_comment = PostComment.where(params:[:id])
-
   end
 
   # GET /comics/new
