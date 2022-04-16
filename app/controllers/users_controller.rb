@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @comics = @user.comics
-    @relationship = current_user.relationships.find_by(follow_id: @user.id)
-    @set_relationship = current_user.relationships.new
     @comic = Comic.new
   end
 

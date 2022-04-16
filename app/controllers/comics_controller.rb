@@ -60,10 +60,10 @@ class ComicsController < ApplicationController
   # DELETE /comics/1 or /comics/1.json
   def destroy
     @comic = Comic.find(params[:id])
-    @comic.destroy
-    respond_to do |format|
-      format.html { redirect_to comics_url, notice: "Comic was successfully destroyed." }
-      format.json { head :no_content }
+    if @comic.user == current_user
+       render :destroy
+    else
+       redirect_to comics_path
     end
   end
 
