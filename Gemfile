@@ -69,9 +69,12 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem 'rails-i18n'
 gem 'enum_help'
-gem "dotenv-rails"
 gem 'rakuten_web_service'
 gem 'therubyracer'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'slim-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
