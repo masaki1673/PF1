@@ -29,15 +29,14 @@ Comics Diary
 
 ### 主な利用シーン
 
-<利用するその人の気分や自分が置かれている環境に合わせてマンガを読みたくなった時・気になっていたけど題名が思い出せないマンガがあった時・自分の推しマンガを友達に紹介したい時>
+利用するその人の気分や自分が置かれている環境に合わせてマンガを読みたくなった時、気になっていたけど題名が思い出せないマンガがあった時、自分の推しマンガを友達に紹介したい時
 
 ## 設計書
-
-<...>
+ER図：　https://app.diagrams.net/#G1kSF0Oxg8i__4-6m-RpJAPNIzOxYQgiaK
 
 ## チャレンジ要素一覧
 
-<https://docs.google.com/spreadsheets/d/14PgGITD-Nl8-xS6tFqd4U4wIFiESgQFXRi7cbGyd5E8/edit#gid=0>
+https://docs.google.com/spreadsheets/d/14PgGITD-Nl8-xS6tFqd4U4wIFiESgQFXRi7cbGyd5E8/edit#gid=0
 
 ## 開発環境
 
@@ -51,5 +50,4 @@ Comics Diary
 
 ・楽天書籍検索 API  
 https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404
-・楽天ジャンル検索 API（作成に余裕があれば）
-https://app.rakuten.co.jp/services/api/BooksGenre/Search/20121128
+
