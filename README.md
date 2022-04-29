@@ -34,6 +34,7 @@ Comics Diary
 
 ## 設計書
 ER図：　https://app.diagrams.net/#G1kSF0Oxg8i__4-6m-RpJAPNIzOxYQgiaK
+
 テーブル定義書：　https://docs.google.com/spreadsheets/d/1Yu3xa8OghxXMYBvT71u-eLwuJQPBVikeqZrS9esZoRw/edit#gid=1398283818
 
 ## チャレンジ要素一覧
